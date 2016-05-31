@@ -7,7 +7,7 @@ output: html_document
     toc_depth: 3
 ---
 
-## Food Security 2011 data standarization from 0 to 1 per variable
+## Food Security 2011 data standardization from 0 to 1 per variable
 ```{r setup, include=FALSE}
 setwd("~/KUNI/Food_Security") #make the same path in your computer
 
@@ -42,7 +42,7 @@ FOODSECURITY_2011$food_production_variability <- FOODSECURITY_2011$food_producti
 #dealing with factor <5.0 UNDERNOURISH variable 
 FOODSECURITY_2011$u <- as.numeric(as.character(FOODSECURITY_2011$undernourish))              #transform <5.0 to NA
 
-FOODSECURITY_2011$u2 <- as.character(FOODSECURITY_2011$u/max(FOODSECURITY_2011$u, na.rm=T))  #standarization
+FOODSECURITY_2011$u2 <- as.character(FOODSECURITY_2011$u/max(FOODSECURITY_2011$u, na.rm=T))  #standardization
 
 FOODSECURITY_2011$u2 <- ifelse(as.character(FOODSECURITY_2011$undernourish) == "<5.0", as.character('<0.097'), FOODSECURITY_2011$u2) # <0.097 comes from 5.0/max(FOODSECURITY_2011$u, na.rm=T)
   
