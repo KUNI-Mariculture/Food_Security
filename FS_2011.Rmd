@@ -1,5 +1,5 @@
 ---
-title: "FS_2011_standar"
+title: "FS_2011"
 author: "Patricia Faundez"
 date: "May 29, 2016"
 output: html_document
@@ -22,8 +22,7 @@ str(FOODSECURITY)
 
 FOODSECURITY_2011 <- FOODSECURITY[FOODSECURITY$year == 2011 & !is.na(FOODSECURITY$year),]
 
-FOODSECURITY_2011$energy_adequacy <- FOODSECURITY_2011$energy_adequacy/max(FOODSECURITY_2011$energy_adequacy, na.rm=T)
-FOODSECURITY_2011$food_deficit <- FOODSECURITY_2011$food_deficit/max(FOODSECURITY_2011$food_deficit, na.rm=T)
+# variables with unit % (energy_adequacy, food_deficit and food_over_acquisition) weren't included in the standardization 
 FOODSECURITY_2011$food_price <- FOODSECURITY_2011$food_price/max(FOODSECURITY_2011$food_price, na.rm=T)
 FOODSECURITY_2011$food_production <- FOODSECURITY_2011$food_production/max(FOODSECURITY_2011$food_production, na.rm=T)
 FOODSECURITY_2011$gdp <- FOODSECURITY_2011$gdp/max(FOODSECURITY_2011$gdp, na.rm=T)
@@ -34,7 +33,6 @@ FOODSECURITY_2011$food_supply_variability <- FOODSECURITY_2011$food_supply_varia
 FOODSECURITY_2011$total_population <- FOODSECURITY_2011$total_population/max(FOODSECURITY_2011$total_population, na.rm=T)
 FOODSECURITY_2011$dietary_energy_supply <- FOODSECURITY_2011$dietary_energy_supply/max(FOODSECURITY_2011$dietary_energy_supply, na.rm=T)
 FOODSECURITY_2011$fat_supply <- FOODSECURITY_2011$fat_supply/max(FOODSECURITY_2011$fat_supply, na.rm=T)
-FOODSECURITY_2011$food_over_acquisition <- FOODSECURITY_2011$food_over_acquisition/max(FOODSECURITY_2011$food_over_acquisition, na.rm=T)
 FOODSECURITY_2011$food_production_variability <- FOODSECURITY_2011$food_production_variability/max(FOODSECURITY_2011$food_production_variability, na.rm=T)
 
 #FOODSECURITY_2011$number_undernourished <- FOODSECURITY_2011$number_undernourished/max(FOODSECURITY_2011$number_undernourished, na.rm=T)
