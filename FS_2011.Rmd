@@ -29,7 +29,7 @@ FOODSECURITY_2011$food_production <- FOODSECURITY_2011$food_production/max(FOODS
 FOODSECURITY_2011$gdp <- FOODSECURITY_2011$gdp/max(FOODSECURITY_2011$gdp, na.rm=T)
 FOODSECURITY_2011$protein <- FOODSECURITY_2011$protein/max(FOODSECURITY_2011$protein, na.rm=T)
 FOODSECURITY_2011$protein_animal  <- FOODSECURITY_2011$protein_animal/max(FOODSECURITY_2011$protein_animal, na.rm=T)
-FOODSECURITY_2011$price_volatility <- FOODSECURITY_2011$price_volatility/max(FOODSECURITY_2011$price_volatility, na.rm=T)
+FOODSECURITY_2011$food_price_volatility <- FOODSECURITY_2011$food_price_volatility/max(FOODSECURITY_2011$food_price_volatility, na.rm=T)
 FOODSECURITY_2011$food_supply_variability <- FOODSECURITY_2011$food_supply_variability/max(FOODSECURITY_2011$food_supply_variability, na.rm=T)
 FOODSECURITY_2011$total_population <- FOODSECURITY_2011$total_population/max(FOODSECURITY_2011$total_population, na.rm=T)
 FOODSECURITY_2011$dietary_energy_supply <- FOODSECURITY_2011$dietary_energy_supply/max(FOODSECURITY_2011$dietary_energy_supply, na.rm=T)
@@ -39,16 +39,12 @@ FOODSECURITY_2011$food_production_variability <- FOODSECURITY_2011$food_producti
 
 #FOODSECURITY_2011$number_undernourished <- FOODSECURITY_2011$number_undernourished/max(FOODSECURITY_2011$number_undernourished, na.rm=T)
 
-#dealing with factor <5.0 
-#FOODSECURITY_2011$u <- FOODSECURITY_2011$undernourish
-#FOODSECURITY_2011$u <- as.numeric(FOODSECURITY_2011$undernourish) #transform <5.0 to NA
+#dealing with factor <5.0 UNDERNOURISH variable 
+FOODSECURITY_2011$u <- as.numeric(as.character(FOODSECURITY_2011$undernourish))              #transform <5.0 to NA
 
-#FOODSECURITY_2011$u/max(FOODSECURITY_2011$u, na.rm=T) 
-#FOODSECURITY_2011$undernourish_2 <- ifelse(!is.na(FOODSECURITY_2011$u), FOODSECURITY_2011$u, "<5.0")
+FOODSECURITY_2011$u2 <- as.character(FOODSECURITY_2011$u/max(FOODSECURITY_2011$u, na.rm=T))  #standarization
 
-#5.0/max(FOODSECURITY_2011$u,na.rm = T)
-#c<- ifelse(!is.na(b), b, "<0.02")
-  
+FOODSECURITY_2011$u2 <- ifelse(as.character(FOODSECURITY_2011$undernourish) == "<5.0", as.character('<0.097'), FOODSECURITY_2011$u2) # <0.097 comes from 5.0/max(FOODSECURITY_2011$u, na.rm=T)
   
 head(FOODSECURITY_2011)
 write.csv("~/KUNI/Food_Security/FOODSECURITY_2011.csv")  # write out csv
