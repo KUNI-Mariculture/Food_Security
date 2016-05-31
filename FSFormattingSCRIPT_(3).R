@@ -7,7 +7,7 @@ library(ggplot2)
 
 #load files, remove aggregated rows, melt
 
-#set working directory: ~/Google Drive/Kuni Fellowship 2016/Data sources/Food Security Data
+#set working directory
 setwd("~/KUNI/Food_Security") #make the same path in your computer
 
 #####
@@ -196,5 +196,5 @@ FoodSecurityDF <- as.data.frame(FS15)
 
 FoodSecurity <- dplyr::filter(FoodSecurityDF, country !="") # drop extra rows with no data
 
-write.csv(FoodSecurity, file="FOODSECURITY")
+write.csv(FoodSecurity, file="FOODSECURITY.csv")
 
